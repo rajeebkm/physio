@@ -2,50 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Health & Physiotherapy Website Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
+
 @layer base {
     :root {
+        /* Core Colors - Medical Theme */
         --background: 0 0% 100%;
-        --foreground: 222.2 84% 4.9%;
+        --foreground: 215 20% 15%;
+
         --card: 0 0% 100%;
-        --card-foreground: 222.2 84% 4.9%;
+        --card-foreground: 215 20% 15%;
+
         --popover: 0 0% 100%;
-        --popover-foreground: 222.2 84% 4.9%;
-        --primary: 221.2 83.2% 53.3%;
-        --primary-foreground: 210 40% 98%;
-        --secondary: 210 40% 96%;
-        --secondary-foreground: 222.2 84% 4.9%;
-        --muted: 210 40% 96%;
-        --muted-foreground: 215.4 16.3% 46.9%;
-        --accent: 210 40% 96%;
-        --accent-foreground: 222.2 84% 4.9%;
-        --destructive: 0 84.2% 60.2%;
-        --destructive-foreground: 210 40% 98%;
-        --border: 214.3 31.8% 91.4%;
-        --input: 214.3 31.8% 91.4%;
-        --ring: 221.2 83.2% 53.3%;
+        --popover-foreground: 215 20% 15%;
+
+        /* Primary - Trust Blue */
+        --primary: 212 100% 48%;
+        --primary-foreground: 0 0% 100%;
+        --primary-light: 212 100% 95%;
+        --primary-dark: 212 100% 35%;
+
+        /* Secondary - Healing Green */
+        --secondary: 158 64% 52%;
+        --secondary-foreground: 0 0% 100%;
+        --secondary-light: 158 64% 95%;
+        --secondary-dark: 158 64% 40%;
+
+        /* Accent - Wellness Teal */
+        --accent: 186 100% 42%;
+        --accent-foreground: 0 0% 100%;
+        --accent-light: 186 100% 95%;
+
+        /* Neutrals */
+        --muted: 210 20% 96%;
+        --muted-foreground: 215 10% 50%;
+        --border: 210 20% 90%;
+        --input: 210 20% 95%;
+        --ring: 212 100% 48%;
+
+        /* Status Colors */
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 100%;
+        --warning: 43 100% 50%;
+        --success: 158 64% 52%;
+
+        /* Gradients */
+        --gradient-primary: linear-gradient(135deg, hsl(212 100% 48%), hsl(212 100% 35%));
+        --gradient-secondary: linear-gradient(135deg, hsl(158 64% 52%), hsl(158 64% 40%));
+        --gradient-hero: linear-gradient(135deg, hsl(212 100% 48%), hsl(186 100% 42%));
+        --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 20% 98%));
+
+        /* Shadows */
+        --shadow-soft: 0 4px 6px -1px hsl(212 100% 48% / 0.1);
+        --shadow-card: 0 10px 25px -3px hsl(212 100% 48% / 0.1);
+        --shadow-glow: 0 0 20px hsl(212 100% 48% / 0.3);
+
         --radius: 0.75rem;
     }
 
     .dark {
-        --background: 222.2 84% 4.9%;
-        --foreground: 210 40% 98%;
-        --card: 222.2 84% 4.9%;
-        --card-foreground: 210 40% 98%;
-        --popover: 222.2 84% 4.9%;
-        --popover-foreground: 210 40% 98%;
-        --primary: 217.2 91.2% 59.8%;
-        --primary-foreground: 222.2 84% 4.9%;
-        --secondary: 217.2 32.6% 17.5%;
-        --secondary-foreground: 210 40% 98%;
-        --muted: 217.2 32.6% 17.5%;
-        --muted-foreground: 215 20.2% 65.1%;
-        --accent: 217.2 32.6% 17.5%;
-        --accent-foreground: 210 40% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 210 40% 98%;
-        --border: 217.2 32.6% 17.5%;
-        --input: 217.2 32.6% 17.5%;
-        --ring: 224.3 76.3% 94.1%;
+        --background: 215 20% 8%;
+        --foreground: 0 0% 95%;
+
+        --card: 215 20% 10%;
+        --card-foreground: 0 0% 95%;
+
+        --popover: 215 20% 10%;
+        --popover-foreground: 0 0% 95%;
+
+        --primary: 212 100% 55%;
+        --primary-foreground: 0 0% 100%;
+        --primary-light: 212 100% 20%;
+        --primary-dark: 212 100% 70%;
+
+        --secondary: 158 64% 45%;
+        --secondary-foreground: 0 0% 100%;
+        --secondary-light: 158 64% 15%;
+        --secondary-dark: 158 64% 60%;
+
+        --accent: 186 100% 35%;
+        --accent-foreground: 0 0% 100%;
+        --accent-light: 186 100% 15%;
+
+        --muted: 215 20% 15%;
+        --muted-foreground: 215 10% 65%;
+        --border: 215 20% 20%;
+        --input: 215 20% 15%;
+        --ring: 212 100% 55%;
     }
 }
 
@@ -55,170 +99,117 @@
     }
 
     body {
-        @apply bg-background text-foreground font-sans antialiased;
+        @apply bg-background text-foreground font-inter antialiased;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply font-poppins font-semibold tracking-tight;
     }
 }
 
 @layer components {
 
-    /* Modern gradient text */
-    .gradient-text {
-        @apply bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent;
+    /* Hero Section Styles */
+    .hero-gradient {
+        background: var(--gradient-hero);
     }
 
-    /* Modern button styles */
-    .btn-primary {
-        @apply bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200;
+    .card-gradient {
+        background: var(--gradient-card);
     }
 
-    .btn-secondary {
-        @apply bg-white hover:bg-gray-50 text-gray-800 font-semibold py-3 px-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200;
-    }
-
-    /* Modern input styles */
-    .input-modern {
-        @apply w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent shadow-sm transition-all duration-200;
-    }
-
-    /* Modern card styles */
-    .card-modern {
-        @apply bg-white rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300;
-    }
-
-    /* Modern container */
-    .container-modern {
-        @apply max-w-7xl mx-auto px-6;
-    }
-
-    /* Section padding */
-    .section-padding {
-        @apply py-20;
-    }
-
-    /* Typography */
-    .text-display {
-        @apply text-5xl md:text-6xl lg:text-7xl font-bold leading-tight;
-    }
-
-    .text-headline {
-        @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight;
-    }
-
-    .text-body {
-        @apply text-lg md:text-xl leading-relaxed;
-    }
-
-    /* Animations */
-    .animate-fade-in {
-        animation: fadeIn 0.6s ease-out;
-    }
-
-    .animate-slide-up {
-        animation: slideUp 0.6s ease-out;
-    }
-
-    .animate-scale-in {
-        animation: scaleIn 0.6s ease-out;
-    }
-
-    /* Hover effects */
-    .hover-lift {
-        @apply hover:-translate-y-1 hover:shadow-xl transition-all duration-300;
-    }
-
-    .hover-glow {
-        @apply hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300;
-    }
-
-    /* Glass morphism */
-    .glass {
-        @apply bg-white/80 backdrop-blur-sm border border-white/20;
-    }
-
-    .glass-dark {
-        @apply bg-gray-900/80 backdrop-blur-sm border border-gray-700/20;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes slideUp {
-    from {
+    /* Animation Classes */
+    .fade-up {
+        animation: fadeUp 0.6s ease-out forwards;
         opacity: 0;
         transform: translateY(20px);
     }
 
+    .fade-up-delay-1 {
+        animation: fadeUp 0.6s ease-out 0.1s forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .fade-up-delay-2 {
+        animation: fadeUp 0.6s ease-out 0.2s forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .fade-up-delay-3 {
+        animation: fadeUp 0.6s ease-out 0.3s forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    .hover-lift {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hover-lift:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-card);
+    }
+
+    /* Custom Button Styles */
+    .btn-primary {
+        background: var(--gradient-primary);
+        @apply text-primary-foreground font-medium rounded-lg transition-all duration-300;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-glow);
+    }
+
+    .btn-secondary {
+        background: var(--gradient-secondary);
+        @apply text-secondary-foreground font-medium rounded-lg transition-all duration-300;
+    }
+
+    .btn-secondary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 0 20px hsl(158 64% 52% / 0.3);
+    }
+}
+
+@layer utilities {
+    .text-gradient-primary {
+        background: var(--gradient-primary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .text-gradient-secondary {
+        background: var(--gradient-secondary);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+}
+
+@keyframes fadeUp {
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes scaleIn {
-    from {
-        opacity: 0;
-        transform: scale(0.95);
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px hsl(212 100% 48% / 0.3);
     }
 
-    to {
-        opacity: 1;
-        transform: scale(1);
+    50% {
+        box-shadow: 0 0 30px hsl(212 100% 48% / 0.5);
     }
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f5f9;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-}
-
-/* Focus styles */
-.focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
-}
-
-/* Selection styles */
-::selection {
-    background-color: #3b82f6;
-    color: white;
-}
-
-/* Smooth scrolling */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Loading states */
-.loading {
-    @apply animate-pulse;
-}
-
-/* Error states */
-.error {
-    @apply border-red-500 bg-red-50 text-red-700;
-}
-
-/* Success states */
-.success {
-    @apply border-green-500 bg-green-50 text-green-700;
 }
